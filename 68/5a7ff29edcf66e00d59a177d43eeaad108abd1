@@ -1,0 +1,51 @@
+src/tools/updateGroupSetting/schema.ts
+  s_a2b9fb5e943012::t_1094c01752af42 1-11
+src/tools/updateGroupSubject/index.ts
+  s_a2b9fb5e943012::t_58b0065d74801f 1-27
+src/utils/evolutionApi.ts
+  s_a2b9fb5e943012::t_a08124d4fe7949 516-589
+  s_a2b9fb5e943012::t_f66fa357a98e15 1483-1495
+src/tools/updateGroupParticipants/index.ts
+  s_a2b9fb5e943012::t_2d811c364bfa5d 1-36
+src/tools/updateGroupSetting/index.ts
+  s_a2b9fb5e943012::t_7df4d371a79e72 1-27
+src/tools/leaveGroup/schema.ts
+  s_a2b9fb5e943012::t_b60fdaeec16433 1-8
+src/tools/getGroupInviteCode/schema.ts
+  s_a2b9fb5e943012::t_c040eac24708cb 1-8
+src/tools/getGroupInviteCode/index.ts
+  s_a2b9fb5e943012::t_0f3290963f5093 1-24
+src/tools/updateGroupDescription/index.ts
+  s_a2b9fb5e943012::t_54b8e40dfebb30 1-27
+src/tools/updateGroupParticipants/schema.ts
+  s_a2b9fb5e943012::t_b7e79a2024f3f4 1-10
+src/tools/createGroup/schema.ts
+  s_a2b9fb5e943012::t_e1c7a26235b21a 1-11
+src/tools/updateGroupSubject/schema.ts
+  s_a2b9fb5e943012::t_04407178a11784 1-9
+src/tools/createGroup/index.ts
+  s_a2b9fb5e943012::t_0a47c9113d605b 1-29
+src/tools/updateGroupDescription/schema.ts
+  s_a2b9fb5e943012::t_6805e7539a3370 1-9
+src/tools/index.ts
+  s_a2b9fb5e943012::t_e6918acfdd4e5b 211-245
+  s_a2b9fb5e943012::t_a333c796775619 35-41
+src/tools/leaveGroup/index.ts
+  s_a2b9fb5e943012::t_bf9b00e1cbfbd4 1-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "685a7ff29edcf66e00d59a177d43eeaad108abd1",
+  "prompts": {},
+  "sessions": {
+    "s_a2b9fb5e943012": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "45455ae7-e6fa-4135-805b-ffcdd7b1c05c",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Andre Paz Dina <andre.paz@mercadolivre.com>"
+    }
+  }
+}
