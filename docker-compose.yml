@@ -1,27 +1,33 @@
-version: '3.8'
-
 services:
-  mcp-evo-api:
+  mcp-evolution-whatsapp:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: mcp-evo-api
+    container_name: mcp-evolution-whatsapp
     restart: unless-stopped
-    ports:
-      - "3000:3000"
     environment:
-      - NODE_ENV=production
+      - MCP_TRANSPORT=http
+      - PORT=3000
+      - MCP_HTTP_AUTH_TOKEN=${MCP_HTTP_AUTH_TOKEN}
       - EVOLUTION_API_URL=${EVOLUTION_API_URL}
       - EVOLUTION_API_KEY=${EVOLUTION_API_KEY}
-    volumes:
-      - mcp-data:/app/data
+      - EVOLUTION_DEFAULT_INSTANCE=${EVOLUTION_DEFAULT_INSTANCE}
     networks:
-      - mcp-network
+      - web
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.mcp-evolution.rule=Host(`mcp.orionic.com.br`) && PathPrefix(`/mcp-evolution-whatsapp-api`)
+      - traefik.http.routers.mcp-evolution.entrypoints=websecure
+      - traefik.http.routers.mcp-evolution.tls.certresolver=letsencrypt
+      - traefik.http.services.mcp-evolution.loadbalancer.server.port=3000
+    deploy:
+      resources:
+        limits:
+          memory: 256M
 
-volumes:
-  mcp-data:
-    driver: local
-
+# Rede externa do Traefik: "web"
+# Certifique-se de que esta rede ja existe antes do deploy:
+#   docker network ls | grep web
 networks:
-  mcp-network:
-    driver: bridge 
+  web:
+    external: true
