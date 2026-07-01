@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import { z } from "zod";
 
 export const sendContactSchema = z.object({
-  instanceName: z.string().describe("The name of the evolution instance to interact with."),
+  instanceName: instanceField,
   number: z.string().describe("Number to receive the message (with country code)"),
   contact: z.array(
     z.object({

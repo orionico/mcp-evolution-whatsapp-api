@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import * as z from "zod";
 
 export const sendLocationSchema = z.object({
-  instanceName: z.string().describe("Name of the WhatsApp instance to use"),
+  instanceName: instanceField,
   number: z.string().describe("Phone number to send the location to (with country code, e.g., 5511999999999)"),
   name: z.string().describe("Name of the location"),
   address: z.string().describe("Address of the location"),

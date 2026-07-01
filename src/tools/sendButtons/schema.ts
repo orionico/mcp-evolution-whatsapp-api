@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import { z } from "zod";
 
 export const sendButtonsSchema = z.object({
-  instanceName: z.string().describe("The name of the instance to use"),
+  instanceName: instanceField,
   number: z.string().describe("Phone number with country code to send the message to"),
   title: z.string().describe("Title of the button message"),
   description: z.string().describe("Main content of the message"),

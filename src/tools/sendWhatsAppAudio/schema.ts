@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import * as z from "zod";
 
 export const sendWhatsAppAudioSchema = z.object({
-  instanceName: z.string().describe("Name of the WhatsApp instance to use"),
+  instanceName: instanceField,
   number: z.string().describe("Phone number to send the audio to (with country code, e.g., 5511999999999)"),
   audio: z.string().describe("URL or base64 content of the audio file"),
   delay: z.number().optional().describe("Presence time in milliseconds before sending message"),

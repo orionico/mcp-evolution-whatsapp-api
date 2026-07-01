@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import { z } from "zod";
 
 export const setEvolutionSettingsSchema = z.object({
-  instanceName: z.string().describe("The name of the WhatsApp instance to configure settings for"),
+  instanceName: instanceField,
   rejectCall: z.boolean().default(false).describe("Whether to automatically reject calls"),
   msgCall: z.string().optional().describe("Message to send when rejecting a call"),
   groupsIgnore: z.boolean().default(false).describe("Whether to ignore group messages"),

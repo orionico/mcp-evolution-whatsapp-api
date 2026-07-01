@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import * as z from "zod";
 
 export const sendPlainTextSchema = z.object({
-  instanceName: z.string().describe("Name of the WhatsApp instance to use"),
+  instanceName: instanceField,
   number: z.string().describe("Phone number to send the message to (with country code, e.g., 5511999999999)"),
   text: z.string().describe("Message text content"),
   delay: z.number().optional().describe("Presence time in milliseconds before sending message"),

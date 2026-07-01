@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import { z } from "zod";
 
 export const getEvolutionWebhookSchema = z.object({
-  instanceName: z.string().describe("The name of the WhatsApp instance to get webhook configuration for")
+  instanceName: instanceField
 });
 
 export type GetEvolutionWebhookSchema = z.infer<typeof getEvolutionWebhookSchema>; 

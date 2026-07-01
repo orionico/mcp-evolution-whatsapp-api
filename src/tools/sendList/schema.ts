@@ -1,3 +1,4 @@
+import { instanceField } from "@/utils/instance";
 import { z } from 'zod';
 
 const listRowSchema = z.object({
@@ -12,7 +13,7 @@ const listSectionSchema = z.object({
 });
 
 export const sendListSchema = z.object({
-  instanceName: z.string().describe('Name of the WhatsApp instance to use'),
+  instanceName: instanceField.describe('Name of the WhatsApp instance to use'),
   number: z.string().describe('Phone number to send the list to (with country code)'),
   title: z.string().describe('Title of the list message'),
   description: z.string().describe('Description of the list message'),

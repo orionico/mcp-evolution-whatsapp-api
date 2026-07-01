@@ -1,3 +1,4 @@
+import { resolveInstance } from "@/utils/instance";
 import type { ToolRegistration } from "@/types";
 import { makeJsonSchema } from "@/utils/makeJsonSchema";
 import { evolutionApi } from "@/utils/evolutionApi";

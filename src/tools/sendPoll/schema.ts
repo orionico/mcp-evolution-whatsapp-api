@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import { z } from 'zod';
 
 export const sendPollSchema = z.object({
-  instanceName: z.string().describe('Name of the WhatsApp instance to use'),
+  instanceName: instanceField.describe('Name of the WhatsApp instance to use'),
   number: z.string().describe('Phone number to send the poll to (with country code)'),
   name: z.string().describe('Title/name of the poll'),
   selectableCount: z.number().int().min(1).describe('How many options each person can select'),

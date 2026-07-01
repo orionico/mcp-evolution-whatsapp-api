@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import { z } from "zod";
 
 export const sendReactionSchema = z.object({
-  instanceName: z.string().describe("The name of the evolution instance to interact with."),
+  instanceName: instanceField,
   reactionMessage: z.object({
     key: z.object({
       remoteJid: z.string().describe("Chat contact or group remote JID"),

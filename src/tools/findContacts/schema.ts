@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import { z } from "zod";
 
 export const findContactsSchema = z.object({
-  instanceName: z.string().describe("Name of the Evolution API instance"),
+  instanceName: instanceField,
   where: z
     .object({
       id: z.string().optional().describe("Filter by contact ID/phone number"),

@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import * as z from "zod";
 
 export const getConnectionStateSchema = z.object({
-  instanceName: z.string().describe("Name of the WhatsApp instance to check connection state"),
+  instanceName: instanceField,
 });
 
 export type GetConnectionStateSchema = z.infer<typeof getConnectionStateSchema>; 

@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import { z } from "zod";
 
 export const leaveGroupSchema = z.object({
-  instanceName: z.string().describe("Name of the WhatsApp instance"),
+  instanceName: instanceField,
   groupJid: z.string().describe("Group JID (e.g. 123456789@g.us)"),
 });
 

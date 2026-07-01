@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import * as z from "zod";
 
 export const sendMediaSchema = z.object({
-  instanceName: z.string().describe("Name of the WhatsApp instance to use"),
+  instanceName: instanceField,
   number: z.string().describe("Phone number to send the media to (with country code, e.g., 5511999999999)"),
   mediatype: z.enum(["image", "video", "audio", "document"]).describe("Type of media to send (image, video, audio, or document)"),
   media: z.string().describe("URL or base64 content of the media file"),

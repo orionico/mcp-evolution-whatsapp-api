@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import * as z from "zod";
 
 export const sendStickerSchema = z.object({
-  instanceName: z.string().describe("Name of the WhatsApp instance to use"),
+  instanceName: instanceField,
   number: z.string().describe("Phone number to send the sticker to (with country code, e.g., 5511999999999)"),
   sticker: z.string().describe("URL or base64 content of the sticker image"),
   delay: z.number().optional().describe("Presence time in milliseconds before sending message"),

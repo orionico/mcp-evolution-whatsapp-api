@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import { z } from "zod";
 
 export const findGroupMembersSchema = z.object({
-  instanceName: z.string().describe("Name of the Evolution API instance"),
+  instanceName: instanceField,
   groupJid: z.string().describe("Group remote JID (group ID with @g.us suffix)")
 });
 

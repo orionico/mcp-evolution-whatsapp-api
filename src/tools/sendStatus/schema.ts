@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import * as z from "zod";
 
 export const sendStatusSchema = z.object({
-  instanceName: z.string().describe("Name of the WhatsApp instance to use"),
+  instanceName: instanceField,
   type: z.enum(["text", "image", "audio"]).describe("Type of status (text, image, or audio)"),
   content: z.string().describe("Text content for type 'text' or file URL for type 'image' and 'audio'"),
   caption: z.string().optional().describe("Text caption for type 'image' status"),

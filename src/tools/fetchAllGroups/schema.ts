@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import { z } from "zod";
 
 export const fetchAllGroupsSchema = z.object({
-  instanceName: z.string().describe("The name of the evolution instance to interact with."),
+  instanceName: instanceField,
   getParticipants: z.boolean().optional().describe("Whether to get the group members or not")
 });
 

@@ -1,3 +1,4 @@
+import { resolveInstance } from "@/utils/instance";
 import { findGroupByJidSchema } from "./schema";
 import type { FindGroupByJidSchema } from "./schema";
 import { evolutionApi } from "@/utils/evolutionApi";

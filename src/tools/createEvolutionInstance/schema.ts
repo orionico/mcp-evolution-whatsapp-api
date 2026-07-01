@@ -1,7 +1,8 @@
+import { instanceField } from "@/utils/instance";
 import * as z from "zod";
 
 export const createEvolutionInstanceSchema = z.object({
-  instanceName: z.string().describe("Name for the WhatsApp instance (required)"),
+  instanceName: instanceField,
   token: z.string().optional().describe("API key (optional, can be left empty to create dynamically)"),
   number: z.string().optional().describe("Instance owner phone number with country code (e.g., 559999999999)"),
   qrcode: z.boolean().optional().describe("Create QR Code automatically after creation"),
