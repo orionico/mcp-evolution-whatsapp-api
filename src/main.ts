@@ -104,7 +104,9 @@ async function runHttp() {
 
 	const app = createMcpExpressApp({ host: "0.0.0.0" });
 
-	app.get("/health", (_req, res) => {
+	// Registered both at root and under mcpPath since Traefik forwards the full
+	// PathPrefix without stripping it.
+	app.get(["/health", `${mcpPath}/health`], (_req, res) => {
 		res.status(200).json({ status: "ok" });
 	});
 
