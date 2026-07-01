@@ -513,6 +513,80 @@ export class EvolutionApi {
     }
   }
 
+  // ─── Group write operations ───────────────────────────────────────────────
+
+  public async createGroup(instanceName: string, params: CreateGroupParams): Promise<unknown> {
+    try {
+      const response = await this.axiosInstance.post(`/group/create/${instanceName}`, params);
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) throw new Error(`Error creating group: ${error.response?.data?.message || error.message}`);
+      throw error;
+    }
+  }
+
+  public async updateGroupParticipants(instanceName: string, params: UpdateGroupParticipantsParams): Promise<unknown> {
+    try {
+      const response = await this.axiosInstance.post(`/group/updateParticipant/${instanceName}`, params);
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) throw new Error(`Error updating participants: ${error.response?.data?.message || error.message}`);
+      throw error;
+    }
+  }
+
+  public async updateGroupSubject(instanceName: string, params: { groupJid: string; subject: string }): Promise<unknown> {
+    try {
+      const response = await this.axiosInstance.post(`/group/updateGroupSubject/${instanceName}`, params);
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) throw new Error(`Error updating group subject: ${error.response?.data?.message || error.message}`);
+      throw error;
+    }
+  }
+
+  public async updateGroupDescription(instanceName: string, params: { groupJid: string; description: string }): Promise<unknown> {
+    try {
+      const response = await this.axiosInstance.post(`/group/updateGroupDescription/${instanceName}`, params);
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) throw new Error(`Error updating group description: ${error.response?.data?.message || error.message}`);
+      throw error;
+    }
+  }
+
+  public async updateGroupSetting(instanceName: string, params: { groupJid: string; action: string }): Promise<unknown> {
+    try {
+      const response = await this.axiosInstance.post(`/group/updateSetting/${instanceName}`, params);
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) throw new Error(`Error updating group setting: ${error.response?.data?.message || error.message}`);
+      throw error;
+    }
+  }
+
+  public async leaveGroup(instanceName: string, groupJid: string): Promise<unknown> {
+    try {
+      const response = await this.axiosInstance.delete(`/group/leaveGroup/${instanceName}?groupJid=${encodeURIComponent(groupJid)}`);
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) throw new Error(`Error leaving group: ${error.response?.data?.message || error.message}`);
+      throw error;
+    }
+  }
+
+  public async getGroupInviteCode(instanceName: string, groupJid: string): Promise<unknown> {
+    try {
+      const response = await this.axiosInstance.get(`/group/inviteCode/${instanceName}?groupJid=${encodeURIComponent(groupJid)}`);
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) throw new Error(`Error getting invite code: ${error.response?.data?.message || error.message}`);
+      throw error;
+    }
+  }
+
+  // ─── Message search ───────────────────────────────────────────────────────
+
   /**
    * Search messages by full-text query and/or chat ID
    */
@@ -1404,6 +1478,19 @@ export interface FindGroupMembersResponse {
     id: string;
     admin?: string;
   }[];
+}
+
+export interface CreateGroupParams {
+  subject: string;
+  participants: string[];
+  description?: string;
+  promoteParticipants?: boolean;
+}
+
+export interface UpdateGroupParticipantsParams {
+  groupJid: string;
+  action: "add" | "remove" | "promote" | "demote";
+  participants: string[];
 }
 
 export interface FindMessagesParams {
