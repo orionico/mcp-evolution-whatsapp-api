@@ -1,0 +1,19 @@
+src/utils/evolutionApi.ts
+  s_a2b9fb5e943012::t_6a21eeb3a33cd4 31-33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "42bf011023b972e136953dbcac62ba046888a450",
+  "prompts": {},
+  "sessions": {
+    "s_a2b9fb5e943012": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "45455ae7-e6fa-4135-805b-ffcdd7b1c05c",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Andre Paz Dina <andre.paz@mercadolivre.com>"
+    }
+  }
+}
