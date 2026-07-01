@@ -1,0 +1,171 @@
+src/tools/setEvolutionSettings/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/sendStatus/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/getEvolutionWebhook/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/sendStatus/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/getChatMessages/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/getContactName/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/restartEvolutionInstance/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/sendWhatsAppAudio/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/updateGroupSubject/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/createEvolutionInstance/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/sendButtons/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/updateGroupDescription/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/updateGroupParticipants/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/sendPlainText/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/findContacts/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/setEvolutionWebhook/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,6
+src/tools/sendList/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/createEvolutionInstance/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/findGroupMembers/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/sendPoll/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/findChats/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/updateGroupParticipants/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/createGroup/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/updateGroupSetting/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/utils/instance.ts
+  s_a2b9fb5e943012::t_c1bcf3e273f0b5 1-17
+src/tools/logoutEvolutionInstance/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/restartEvolutionInstance/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/setEvolutionWebhook/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/updateGroupDescription/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/findMessages/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/fetchAllGroups/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/getEvolutionSettings/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/sendReaction/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/connectEvolutionInstance/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/findGroupMembers/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/findChats/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/sendPoll/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/connectEvolutionInstance/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/getContactName/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/sendSticker/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/setEvolutionPresence/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/sendLocation/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/sendSticker/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/sendButtons/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/updateGroupSubject/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/sendList/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,16
+src/tools/sendMedia/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/getChatMessages/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/deleteEvolutionInstance/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/sendContact/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/leaveGroup/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/getEvolutionSettings/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/sendPlainText/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/setEvolutionPresence/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/setEvolutionSettings/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/getConnectionState/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/fetchEvolutionInstances/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/sendLocation/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/findGroupByJid/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/sendWhatsAppAudio/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/fetchAllGroups/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/getGroupInviteCode/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/fetchEvolutionInstances/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/findGroupByJid/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/deleteEvolutionInstance/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/getConnectionState/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/getEvolutionWebhook/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/createGroup/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/leaveGroup/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/findMessages/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/sendContact/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/sendMedia/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/getGroupInviteCode/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/findContacts/schema.ts
+  s_a2b9fb5e943012::t_ac96a0124318ae 1,5
+src/tools/sendReaction/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/updateGroupSetting/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+src/tools/logoutEvolutionInstance/index.ts
+  s_a2b9fb5e943012::t_5b0b95c70dd753 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "bd2c150cdeaab11324ab7770d4d84885bb344443",
+  "prompts": {},
+  "sessions": {
+    "s_a2b9fb5e943012": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "45455ae7-e6fa-4135-805b-ffcdd7b1c05c",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Andre Paz Dina <andre.paz@mercadolivre.com>"
+    }
+  }
+}
