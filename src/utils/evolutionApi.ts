@@ -514,6 +514,34 @@ export class EvolutionApi {
   }
 
   /**
+   * Search messages by full-text query and/or chat ID
+   */
+  public async findMessages(
+    instanceName: string,
+    params: FindMessagesParams
+  ): Promise<FindMessagesResponse> {
+    try {
+      const body: Record<string, unknown> = {};
+      if (params.query)  body.query  = params.query;
+      if (params.chatId) body.chatId = params.chatId;
+      if (params.limit)  body.limit  = params.limit;
+
+      const response = await this.axiosInstance.post(
+        `/chat/findMessages/${instanceName}`,
+        body
+      );
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        throw new Error(
+          `Error finding messages: ${error.response?.data?.message || error.message}`
+        );
+      }
+      throw error;
+    }
+  }
+
+  /**
    * Find contacts by filter criteria
    * @param instanceName Name of the Evolution API instance
    * @param params Search parameters including optional filters
@@ -1377,6 +1405,14 @@ export interface FindGroupMembersResponse {
     admin?: string;
   }[];
 }
+
+export interface FindMessagesParams {
+  query?: string;
+  chatId?: string;
+  limit?: number;
+}
+
+export type FindMessagesResponse = unknown;
 
 export interface FindChatsParams {
   where?: {

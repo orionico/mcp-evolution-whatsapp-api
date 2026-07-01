@@ -29,6 +29,9 @@ import { findGroupByJidTool } from "./findGroupByJid";
 import { findGroupMembersTool } from "./findGroupMembers";
 import { findChatsTool } from "./findChats";
 import { findContactsTool } from "./findContacts";
+import { findMessagesTool } from "./findMessages";
+import { getChatMessagesTool } from "./getChatMessages";
+import { getContactNameTool } from "./getContactName";
 
 // biome-ignore lint/suspicious/noExplicitAny: Any is fine here because all tools validate their input schemas.
 export const createTools = (): ToolRegistration<any>[] => {
@@ -182,6 +185,21 @@ export const createTools = (): ToolRegistration<any>[] => {
 			...findContactsTool,
 			// biome-ignore lint/suspicious/noExplicitAny: All tools validate their input schemas, so any is fine.
 			handler: (args: any) => findContactsTool.handler(args),
+		},
+		{
+			...findMessagesTool,
+			// biome-ignore lint/suspicious/noExplicitAny: All tools validate their input schemas, so any is fine.
+			handler: (args: any) => findMessagesTool.handler(args),
+		},
+		{
+			...getChatMessagesTool,
+			// biome-ignore lint/suspicious/noExplicitAny: All tools validate their input schemas, so any is fine.
+			handler: (args: any) => getChatMessagesTool.handler(args),
+		},
+		{
+			...getContactNameTool,
+			// biome-ignore lint/suspicious/noExplicitAny: All tools validate their input schemas, so any is fine.
+			handler: (args: any) => getContactNameTool.handler(args),
 		},
 	];
 };
