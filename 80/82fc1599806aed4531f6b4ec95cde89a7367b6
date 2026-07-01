@@ -1,0 +1,35 @@
+src/tools/getChatMessages/schema.ts
+  s_a2b9fb5e943012::t_16d0a91a69bd20 1-9
+src/tools/getChatMessages/index.ts
+  s_a2b9fb5e943012::t_2e9ac88c763584 1-44
+src/tools/findMessages/index.ts
+  s_a2b9fb5e943012::t_422da385dbb7d2 1-43
+src/tools/getContactName/schema.ts
+  s_a2b9fb5e943012::t_bf281ee1727c77 1-8
+src/tools/getContactName/index.ts
+  s_a2b9fb5e943012::t_e9f7e704289a6a 1-60
+src/utils/evolutionApi.ts
+  s_a2b9fb5e943012::t_f4b10427934eff 517-543
+  s_a2b9fb5e943012::t_276f2b6ec61626 1409-1416
+src/tools/index.ts
+  s_a2b9fb5e943012::t_eccee2201af79c 32-34
+  s_a2b9fb5e943012::t_9a69c33c41a4ba 189-203
+src/tools/findMessages/schema.ts
+  s_a2b9fb5e943012::t_589a2b681e272b 1-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "8082fc1599806aed4531f6b4ec95cde89a7367b6",
+  "prompts": {},
+  "sessions": {
+    "s_a2b9fb5e943012": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "45455ae7-e6fa-4135-805b-ffcdd7b1c05c",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Andre Paz Dina <andre.paz@mercadolivre.com>"
+    }
+  }
+}
