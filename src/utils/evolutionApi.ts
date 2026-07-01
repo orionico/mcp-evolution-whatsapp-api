@@ -28,6 +28,9 @@ export class EvolutionApi {
       headers: {
         'Content-Type': 'application/json',
         'apikey': this.apiKey,
+        // Bun's zlib shim doesn't implement Brotli decompression; asking the
+        // server not to use it avoids a hard crash on responses encoded with "br".
+        'Accept-Encoding': 'gzip, deflate',
       },
     });
   }
