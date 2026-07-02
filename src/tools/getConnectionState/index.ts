@@ -8,7 +8,7 @@ export const getConnectionState = async (
   args: GetConnectionStateSchema,
 ): Promise<string> => {
   try {
-    const result = await evolutionApi.getConnectionState(args.instanceName);
+    const result = await evolutionApi.getConnectionState(resolveInstance(args.instanceName));
     return JSON.stringify(result, null, 2);
   } catch (error) {
     console.error("Error in getConnectionState:", error);
