@@ -18,7 +18,12 @@ import { createTools } from "./tools";
 
 const tools = createTools();
 
-function buildServer(): Server {
+// sessionInstance is captured in the closure of the CallToolRequestSchema
+// handler below, so each HTTP session (its own Server instance, from its own
+// buildServer() call) resolves instanceName against its own bound instance —
+// no shared mutable state, no reliance on AsyncLocalStorage surviving the
+// SDK's internal Web Standard Request/Response conversion.
+function buildServer(sessionInstance?: string): Server {
 	const server = new Server(
 		{
 			name: "Evolution API MCP Server",
@@ -51,7 +56,11 @@ function buildServer(): Server {
 			}
 
 			try {
-				return await tool.handler(args);
+				const argsWithInstance =
+					sessionInstance && args && typeof args === "object" && !("instanceName" in args)
+						? { ...args, instanceName: sessionInstance }
+						: args;
+				return await tool.handler(argsWithInstance);
 			} catch (error) {
 				if (
 					error instanceof Error &&
@@ -126,6 +135,11 @@ async function runHttp() {
 	// One transport (and one connected Server) per MCP session, keyed by mcp-session-id.
 	const transports: Record<string, StreamableHTTPServerTransport> = {};
 
+	function instanceHeader(req: import("express").Request): string | undefined {
+		const value = req.headers["x-evolution-instance"];
+		return Array.isArray(value) ? value[0] : value;
+	}
+
 	const mcpPostHandler = async (req: import("express").Request, res: import("express").Response) => {
 		const sessionId = req.headers["mcp-session-id"] as string | undefined;
 
@@ -149,7 +163,7 @@ async function runHttp() {
 					}
 				};
 
-				const server = buildServer();
+				const server = buildServer(instanceHeader(req));
 				await server.connect(transport);
 				await transport.handleRequest(req, res, req.body);
 				return;
