@@ -42,6 +42,7 @@ import { getGroupInviteCodeTool } from "./getGroupInviteCode";
 import { findLabelsTool } from "./findLabels";
 import { handleLabelTool } from "./handleLabel";
 import { findChatsByLabelTool } from "./findChatsByLabel";
+import { findChatByRemoteJidTool } from "./findChatByRemoteJid";
 
 // biome-ignore lint/suspicious/noExplicitAny: Any is fine here because all tools validate their input schemas.
 export const createTools = (): ToolRegistration<any>[] => {
@@ -260,6 +261,11 @@ export const createTools = (): ToolRegistration<any>[] => {
 			...findChatsByLabelTool,
 			// biome-ignore lint/suspicious/noExplicitAny: All tools validate their input schemas, so any is fine.
 			handler: (args: any) => findChatsByLabelTool.handler(args),
+		},
+		{
+			...findChatByRemoteJidTool,
+			// biome-ignore lint/suspicious/noExplicitAny: All tools validate their input schemas, so any is fine.
+			handler: (args: any) => findChatByRemoteJidTool.handler(args),
 		},
 	];
 };

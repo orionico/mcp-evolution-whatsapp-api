@@ -516,6 +516,30 @@ export class EvolutionApi {
     }
   }
 
+  /**
+   * Fetch a single Chat row directly by its exact remoteJid, independent of
+   * whether it has any messages. Unlike findChats (which is driven by the
+   * Message table and never returns the `labels` column), this hits
+   * Chat.findFirst directly and returns the full row including `labels`.
+   */
+  public async findChatByRemoteJid(instanceName: string, remoteJid: string): Promise<unknown> {
+    try {
+      const response = await this.axiosInstance.get(
+        `/chat/findChatByRemoteJid/${instanceName}?remoteJid=${encodeURIComponent(remoteJid)}`
+      );
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        throw new Error(
+          `Error finding chat by remoteJid: ${
+            error.response?.data?.message || error.message
+          }`
+        );
+      }
+      throw error;
+    }
+  }
+
   // ─── Group write operations ───────────────────────────────────────────────
 
   public async createGroup(instanceName: string, params: CreateGroupParams): Promise<unknown> {
