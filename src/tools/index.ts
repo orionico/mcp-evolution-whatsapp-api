@@ -39,6 +39,8 @@ import { updateGroupDescriptionTool } from "./updateGroupDescription";
 import { updateGroupSettingTool } from "./updateGroupSetting";
 import { leaveGroupTool } from "./leaveGroup";
 import { getGroupInviteCodeTool } from "./getGroupInviteCode";
+import { findLabelsTool } from "./findLabels";
+import { handleLabelTool } from "./handleLabel";
 
 // biome-ignore lint/suspicious/noExplicitAny: Any is fine here because all tools validate their input schemas.
 export const createTools = (): ToolRegistration<any>[] => {
@@ -242,6 +244,16 @@ export const createTools = (): ToolRegistration<any>[] => {
 			...getGroupInviteCodeTool,
 			// biome-ignore lint/suspicious/noExplicitAny: All tools validate their input schemas, so any is fine.
 			handler: (args: any) => getGroupInviteCodeTool.handler(args),
+		},
+		{
+			...findLabelsTool,
+			// biome-ignore lint/suspicious/noExplicitAny: All tools validate their input schemas, so any is fine.
+			handler: (args: any) => findLabelsTool.handler(args),
+		},
+		{
+			...handleLabelTool,
+			// biome-ignore lint/suspicious/noExplicitAny: All tools validate their input schemas, so any is fine.
+			handler: (args: any) => handleLabelTool.handler(args),
 		},
 	];
 };

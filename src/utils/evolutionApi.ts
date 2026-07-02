@@ -588,6 +588,28 @@ export class EvolutionApi {
     }
   }
 
+  // ─── Labels (Baileys only) ─────────────────────────────────────────────────
+
+  public async findLabels(instanceName: string): Promise<unknown> {
+    try {
+      const response = await this.axiosInstance.get(`/label/findLabels/${instanceName}`);
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) throw new Error(`Error finding labels: ${error.response?.data?.message || error.message}`);
+      throw error;
+    }
+  }
+
+  public async handleLabel(instanceName: string, params: HandleLabelParams): Promise<unknown> {
+    try {
+      const response = await this.axiosInstance.post(`/label/handleLabel/${instanceName}`, params);
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) throw new Error(`Error handling label: ${error.response?.data?.message || error.message}`);
+      throw error;
+    }
+  }
+
   // ─── Message search ───────────────────────────────────────────────────────
 
   /**
@@ -1481,6 +1503,12 @@ export interface FindGroupMembersResponse {
     id: string;
     admin?: string;
   }[];
+}
+
+export interface HandleLabelParams {
+  number: string;
+  labelId: string;
+  action: "add" | "remove";
 }
 
 export interface CreateGroupParams {
