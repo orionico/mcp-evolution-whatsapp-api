@@ -4,13 +4,22 @@ import { makeJsonSchema } from "@/utils/makeJsonSchema";
 import { evolutionApi } from "@/utils/evolutionApi";
 import { getChatMessagesSchema, type GetChatMessagesSchema } from "./schema";
 
+function extractMessages(result: unknown): unknown[] {
+  if (Array.isArray(result)) return result;
+  const messages = (result as any)?.messages;
+  if (Array.isArray(messages)) return messages;
+  if (Array.isArray(messages?.records)) return messages.records;
+  return [];
+}
+
 export const getChatMessagesTool: ToolRegistration<GetChatMessagesSchema> = {
   name: "get_chat_messages",
-  description: "Fetch message history for a specific WhatsApp contact by phone number. Returns messages stored in the Evolution API local database.",
+  description: "Fetch message history for a specific WhatsApp contact by phone number. Note: this filters by the traditional {number}@s.whatsapp.net JID — for contacts WhatsApp has migrated to @lid addressing, use find_messages with the exact remoteJid instead (see find_chats output).",
   inputSchema: makeJsonSchema(getChatMessagesSchema),
   handler: async (args: GetChatMessagesSchema) => {
     try {
       const parsed = getChatMessagesSchema.parse(args);
+      const instanceName = resolveInstance(parsed.instanceName);
 
       const clean = parsed.number.replace(/\D/g, "");
       if (clean.length < 10 || clean.length > 15) {
@@ -20,19 +29,18 @@ export const getChatMessagesTool: ToolRegistration<GetChatMessagesSchema> = {
         };
       }
 
-      const chatId = `${clean}@s.whatsapp.net`;
-      const result = await evolutionApi.findMessages(parsed.instanceName, {
-        chatId,
+      const remoteJid = `${clean}@s.whatsapp.net`;
+      const result = await evolutionApi.findMessages(instanceName, {
+        remoteJid,
         limit: parsed.limit,
       });
 
-      const messages = Array.isArray(result) ? result : (result as any)?.messages ?? result;
-      const count = Array.isArray(messages) ? messages.length : "unknown";
+      const messages = extractMessages(result);
 
       return {
         content: [{
           type: "text",
-          text: `Found ${count} message(s) for +${clean} in instance ${parsed.instanceName}\n\n${JSON.stringify(result, null, 2)}`,
+          text: `Found ${messages.length} message(s) for +${clean} in instance ${instanceName}\n\n${JSON.stringify(messages, null, 2)}`,
         }],
       };
     } catch (error) {

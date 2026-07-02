@@ -4,34 +4,35 @@ import { makeJsonSchema } from "@/utils/makeJsonSchema";
 import { evolutionApi } from "@/utils/evolutionApi";
 import { findMessagesSchema, type FindMessagesSchema } from "./schema";
 
+function extractMessages(result: unknown): unknown[] {
+  if (Array.isArray(result)) return result;
+  const messages = (result as any)?.messages;
+  if (Array.isArray(messages)) return messages;
+  if (Array.isArray(messages?.records)) return messages.records;
+  return [];
+}
+
 export const findMessagesTool: ToolRegistration<FindMessagesSchema> = {
   name: "find_messages",
-  description: "Search WhatsApp messages by full-text query and/or filter by chat ID. Returns message history from the Evolution API local database.",
+  description: "Fetch messages for a specific chat by exact JID, or the most recent messages instance-wide if no JID is given. Evolution API has no free-text search — for that, fetch messages and search client-side.",
   inputSchema: makeJsonSchema(findMessagesSchema),
   handler: async (args: FindMessagesSchema) => {
     try {
       const parsed = findMessagesSchema.parse(args);
+      const instanceName = resolveInstance(parsed.instanceName);
 
-      if (!parsed.query && !parsed.chatId) {
-        return {
-          content: [{ type: "text", text: "Error: provide at least one of 'query' (search term) or 'chatId' (chat JID)." }],
-          isError: true,
-        };
-      }
-
-      const result = await evolutionApi.findMessages(parsed.instanceName, {
-        query: parsed.query,
-        chatId: parsed.chatId,
+      const result = await evolutionApi.findMessages(instanceName, {
+        remoteJid: parsed.remoteJid,
         limit: parsed.limit,
       });
 
-      const messages = Array.isArray(result) ? result : (result as any)?.messages ?? result;
-      const count = Array.isArray(messages) ? messages.length : "unknown";
+      const messages = extractMessages(result);
+      const scope = parsed.remoteJid ? `for chat ${parsed.remoteJid}` : "instance-wide (no chat filter)";
 
       return {
         content: [{
           type: "text",
-          text: `Found ${count} message(s) for instance ${parsed.instanceName}\n\n${JSON.stringify(result, null, 2)}`,
+          text: `Found ${messages.length} message(s) ${scope} on instance ${instanceName}\n\n${JSON.stringify(messages, null, 2)}`,
         }],
       };
     } catch (error) {

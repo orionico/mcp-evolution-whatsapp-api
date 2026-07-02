@@ -637,17 +637,35 @@ export class EvolutionApi {
   // ─── Message search ───────────────────────────────────────────────────────
 
   /**
-   * Search messages by full-text query and/or chat ID
+   * Fetch messages for a chat, or the most recent messages instance-wide.
+   *
+   * The real request shape (verified against evolution-foundation/
+   * evolution-api's src/validate/chat.schema.ts and
+   * whatsapp.baileys.service.ts) is `{ where: { key: { remoteJid } },
+   * offset, page }` — not `{ chatId, limit, query }` as one might expect
+   * from the public docs or other MCP forks. There is no free-text search
+   * field in the schema at all: `where.message` only supports an exact
+   * object-shape match, not substring search. `limit` is a dead field the
+   * JSON schema declares but the service never reads; pagination is
+   * controlled by `offset` (page size, default 50) and `page`.
    */
   public async findMessages(
     instanceName: string,
     params: FindMessagesParams
   ): Promise<FindMessagesResponse> {
     try {
-      const body: Record<string, unknown> = {};
-      if (params.query)  body.query  = params.query;
-      if (params.chatId) body.chatId = params.chatId;
-      if (params.limit)  body.limit  = params.limit;
+      const where: Record<string, unknown> = {};
+      if (params.remoteJid) {
+        where.key = { remoteJid: params.remoteJid };
+      }
+
+      const body: Record<string, unknown> = {
+        offset: params.limit ?? 50,
+        page: 1,
+      };
+      if (Object.keys(where).length > 0) {
+        body.where = where;
+      }
 
       const response = await this.axiosInstance.post(
         `/chat/findMessages/${instanceName}`,
@@ -1549,8 +1567,9 @@ export interface UpdateGroupParticipantsParams {
 }
 
 export interface FindMessagesParams {
-  query?: string;
-  chatId?: string;
+  /** Exact WhatsApp JID to filter by (e.g. 5511999999999@s.whatsapp.net or 123@lid). Omit to fetch the most recent messages instance-wide. */
+  remoteJid?: string;
+  /** Page size — mapped to the API's `offset` field. Default 50. */
   limit?: number;
 }
 
