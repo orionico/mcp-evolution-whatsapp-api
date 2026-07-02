@@ -252,8 +252,8 @@ export class EvolutionApi {
 
   public async restartInstance(instanceName: string): Promise<RestartResponse> {
     try {
-      const response = await this.axiosInstance.put(`/instance/restart/${instanceName}`);
-      
+      const response = await this.axiosInstance.post(`/instance/restart/${instanceName}`);
+
       return response.data;
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
