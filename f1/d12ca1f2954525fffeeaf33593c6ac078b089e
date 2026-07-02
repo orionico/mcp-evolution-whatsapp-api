@@ -1,0 +1,24 @@
+src/tools/findChatsByLabel/schema.ts
+  s_a2b9fb5e943012::t_671c86293cd4be 1-9
+src/tools/index.ts
+  s_a2b9fb5e943012::t_3a91a4dfafce71 259-263
+  s_a2b9fb5e943012::t_743a2f09cc2d9f 44
+src/tools/findChatsByLabel/index.ts
+  s_a2b9fb5e943012::t_49b3cb8467d0ab 1-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "f1d12ca1f2954525fffeeaf33593c6ac078b089e",
+  "prompts": {},
+  "sessions": {
+    "s_a2b9fb5e943012": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "45455ae7-e6fa-4135-805b-ffcdd7b1c05c",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Andre Paz Dina <andre.paz@mercadolivre.com>"
+    }
+  }
+}
