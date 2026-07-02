@@ -1,0 +1,21 @@
+.env.example
+  s_a2b9fb5e943012::t_e951bd34296fff 4-6
+src/tools/getConnectionState/index.ts
+  s_a2b9fb5e943012::t_9f70d72372f08f 11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "2fd47e6c1ca660735eb5102c2b972d98a90d2bc9",
+  "prompts": {},
+  "sessions": {
+    "s_a2b9fb5e943012": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "45455ae7-e6fa-4135-805b-ffcdd7b1c05c",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Andre Paz Dina <andre.paz@mercadolivre.com>"
+    }
+  }
+}
