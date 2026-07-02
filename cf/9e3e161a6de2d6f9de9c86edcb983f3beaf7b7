@@ -1,0 +1,25 @@
+src/main.ts
+  s_a2b9fb5e943012::t_6aead578a7350c 166
+  s_a2b9fb5e943012::t_a6b6f6bb445c51 59-63
+  s_a2b9fb5e943012::t_eb3d40771eaeb4 21-26
+  s_a2b9fb5e943012::t_9f04c9670d81d7 138-142
+src/utils/instance.ts
+  s_a2b9fb5e943012::t_4c7951d1fe2fc6 10
+  s_a2b9fb5e943012::t_acdc231f0c3813 6-7,11-16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "cf9e3e161a6de2d6f9de9c86edcb983f3beaf7b7",
+  "prompts": {},
+  "sessions": {
+    "s_a2b9fb5e943012": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "45455ae7-e6fa-4135-805b-ffcdd7b1c05c",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Andre Paz Dina <andre.paz@mercadolivre.com>"
+    }
+  }
+}
